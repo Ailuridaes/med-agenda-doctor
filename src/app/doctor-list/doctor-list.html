@@ -1,0 +1,20 @@
+<table class="table">
+	<thead>
+	<tr>
+		<th>Doctor Name</th>
+		<th>Specialty</th>
+		<th>Status</th>
+		<th></th>
+    </tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="doctor in doctorList.doctors">
+			<td>{{doctor.firstName}} {{doctor.lastName}}</td>
+			<td>{{doctor.specialties}}</td>
+			<td>{{  }}</td>
+			<td><button class="btn btn-primary">Patient Queue</button> </td>
+		</tr>
+
+	</tbody>
+
+</table>

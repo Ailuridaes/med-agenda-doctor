@@ -12,8 +12,19 @@
         		url: '/feature',
         		templateUrl: '/app/feature/feature.html',
         		controller: 'FeatureController as feature'
-        	});
+        	})
 
+            .state('checkIn', {
+                url: '/checkin',
+                templateUrl: '/app/checkin/checkin.html',
+                controller: 'CheckInController as checkIn'
+            })
+
+            .state('doctorList', {
+                url: '/doctorlist',
+                templateUrl: '/app/doctor-list/doctor-list.html',
+                controller: 'DoctorListController as doctorList'
+            });
         });
 
 })();
