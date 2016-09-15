@@ -21,12 +21,11 @@
         ////////////////
 
         function activate() {
-
-
+            getDoctors();
         }
 
         function getDoctors() {
-            doctorFactory.getDoctors()
+            doctorFactory.getDoctorList()
             .then(
                 function(data) {
 
