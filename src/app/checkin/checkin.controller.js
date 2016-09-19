@@ -5,17 +5,23 @@
         .module('app')
         .controller('CheckInController', CheckInController);
 
-    CheckInController.$inject = [];
+    CheckInController.$inject = ['doctorCheckInFactory', '$state'];
 
     /* @ngInject */
-    function CheckInController() {
+    function CheckInController(doctorCheckInFactory, $state) {
         var vm = this;
         vm.title = 'CheckInController';
         vm.checkIn = checkIn;
 
         function checkIn(doctorId){
-           
-
+            doctorCheckInFactory.checkIn(doctorId).then(
+                function(){
+                    // $state.go()
+                },
+                function(error) {
+                    //TODO: handle error
+                }
+            );
         }
     }
 })();
