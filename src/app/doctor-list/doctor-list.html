@@ -12,8 +12,12 @@
 		<tbody>
 			<tr ng-repeat="doctor in doctorList.doctors">
 				<td>Dr. {{doctor.firstName}} {{doctor.lastName}}</td>
-				<td>{{doctor.specialties}}</td>
-				<td>{{  }}</td>
+				<td>
+					<span ng-repeat="specialty in doctor.specialties">
+						{{specialty.medicalField.name}}<span ng-hide="$last">, </span>
+					</span>
+				</td>
+				<td><span ng-repeat="checkin in doctor.doctorCheckIns">Checked In {{checkin.checkInTime}}</span></td>
 				<td><button class="btn btn-primary">Patient Queue</button> </td>
 			</tr>
 

@@ -1,3 +1,8 @@
 body {
   margin-top: 60px;
 }
+
+.patient {
+    outline: 1px solid black;
+    text-align: center;
+}

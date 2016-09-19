@@ -24,6 +24,12 @@
                 url: '/doctorlist',
                 templateUrl: '/app/doctor-list/doctor-list.html',
                 controller: 'DoctorListController as doctorList'
+            })
+
+            .state('patientDetail', {
+                url: '/patientdetail',
+                templateUrl: '/app/patient-details/patient-detail.html',
+                controller: 'PatientDetailController as patientDetail'
             });
         });
 
