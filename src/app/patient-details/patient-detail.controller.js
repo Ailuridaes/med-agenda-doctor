@@ -6,7 +6,7 @@
         .controller('PatientDetailController', PatientDetailController)
         .filter('ageFilter', ageFilter);
 
-    PatientDetailController.$inject = ['patientFactory'];
+    PatientDetailController.$inject = ['patientCheckInFactory', '$stateParams'];
 
     function ageFilter() {
         function calculateAge(birthday) { // birthday is a date
@@ -20,12 +20,13 @@
             return calculateAge(birthdate);
         };
     }
+
     /* @ngInject */
-    function PatientDetailController(patientFactory) {
+    function PatientDetailController(patientCheckInFactory, $stateParams) {
         var vm = this;
         vm.title = 'PatientDetailController';
-        vm.patients = [];
-        vm.getPatient = getPatient;
+        vm.getPatientCheckIn = getPatientCheckIn;
+        vm.patientCheckIn = {};
 
 
         activate();
@@ -33,24 +34,16 @@
         ////////////////
 
         function activate() {
-            getPatient();
+            var patientCheckInId = $stateParams.patientCheckInId;
+            getPatientCheckIn(patientCheckInId);
 
         }
 
-
-        // this.calculateAge = function(birthday) { // pass in player.dateOfBirth
-        //     var ageDifMs = Date.now() - new Date(birthday);
-        //     var ageDate = new Date(ageDifMs); // miliseconds from epoch
-        //     return Math.abs(ageDate.getUTCFullYear() - 1970);
-        // };
-
-        function getPatient() {
-
-            patientFactory.getPatientList()
+        function getPatientCheckIn(patientCheckInId) {
+            patientCheckInFactory.getPatientCheckIn(patientCheckInId)
                 .then(
                     function(data) {
-                        vm.patients = data;
-                        console.log(vm.students);
+                        vm.patientCheckIn = data;
                     });
         }
     }

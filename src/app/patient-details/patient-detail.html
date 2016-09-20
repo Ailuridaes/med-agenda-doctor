@@ -3,19 +3,19 @@
 
 <div class="patient" class="container" class="column">
     <div class="col-sm-4 col-sm-offset-2">
-        <ul class="list-group" ng-repeat="patient in patientDetail.patients">
+        <ul class="list-group">
             <li class="list-group-item">
                 <label class="well well-sm" for="patient name">Patient Name</label>
             </li>
-            <li class="list-group-item">{{patient.firstName}} {{patient.lastName}}</li>
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.firstName}} {{patientDetail.patientCheckIn.patient.lastName}}</li>
             <li class="list-group-item">
                 <label class="well well-sm" for="address">Email Address</label>
             </li>
-            <li class="list-group-item">{{patient.email}}</li>
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.email}}</li>
             <li class="list-group-item">
                 <label class="well well-sm" for="Age">DoB</label>
             </li>
-            <li class="list-group-item"> {{patient.dateOfBirth | date:"MMMM d, y"}}</li>
+            <li class="list-group-item"> {{patientDetail.patientCheckIn.patient.dateOfBirth | date:"MMMM d, y"}}</li>
             <li class="list-group-item">
                 <label class="well well-sm" for="last visit">Last Visit</label>
             </li>
@@ -23,29 +23,29 @@
             <li class="list-group-item">
                 <label class="well well-sm" for="reason for visit">Reason for Visit</label>
             </li>
-            <li class="list-group-item">{{patient.symptoms}} </li>
-            
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.symptoms}} </li>
+
         </ul>
     </div>
     <div class="col-sm-4">
-        <ul class="list-group" ng-repeat="patient in patientDetail.patients">
+        <ul class="list-group">
             <li class="list-group-item">
                 <label class="well well-sm" for="medication">Medication</label>
             </li>
-            <li class="list-group-item">{{patient.medications}}</li>
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.medications}}</li>
             <li class="list-group-item">
                 <label class="well well-sm" for="chronic">Chronic Conditions</label>
             </li>
-            <li class="list-group-item">{{patient.chronicConditions}}</li>
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.chronicConditions}}</li>
             <li class="list-group-item">
                 <label class="well well-sm" for="Age"> Age</label>
             </li>
-            <li class="list-group-item"> {{patient.dateOfBirth | ageFilter}}</li>
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.dateOfBirth | ageFilter}}</li>
             <li class="list-group-item">
                 <label class="well well-sm" for="allergies">Allergies</label>
             </li>
-            <li class="list-group-item">{{patient.allergies}} </li>
-            
+            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.allergies}} </li>
+
             <li class="list-group-item">
                 <label class="well well-sm" for="death?">Dying?</label>
             </li>
@@ -53,4 +53,3 @@
         </ul>
     </div>
 </div>
-

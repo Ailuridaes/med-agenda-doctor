@@ -32,7 +32,7 @@
                 controller: 'PatientQueueController as patientQueue'
             })
             .state('patientDetail', {
-                url: '/patient-detail',
+                url: '/patient-detail/:patientCheckInId',
                 templateUrl: '/app/patient-details/patient-detail.html',
                 controller: 'PatientDetailController as patientDetail'
             });
