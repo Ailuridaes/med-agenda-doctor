@@ -30,6 +30,12 @@
                 url: '/patientdetail',
                 templateUrl: '/app/patient-details/patient-detail.html',
                 controller: 'PatientDetailController as patientDetail'
+            })
+
+            .state('doctorCheckOut', {
+                url: '/doctorcheckout',
+                templateUrl: '/app/doctor-checkout/doctor-checkout.html',
+                controller: 'DoctorCheckOutController as checkOut'
             });
         });
 
