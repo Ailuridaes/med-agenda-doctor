@@ -25,7 +25,7 @@
 
         function getPatient(){
 
-        	patientFactory.getPatientDetails()
+        	patientFactory.getPatient()
         	.then(
         		function(data){
         			vm.patients = data;
