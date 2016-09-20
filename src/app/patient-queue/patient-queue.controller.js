@@ -12,7 +12,7 @@
         var vm = this;
         vm.title = 'PatientQueueController';
         vm.queue = [];
-        // vm.getTimeElapsed = getTimeElapsed;
+        vm.getTimeElapsed = getTimeElapsed;
 
         activate();
 
@@ -30,12 +30,12 @@
             );
         }
 
-        // function getTimeElapsed(timeIn) {
-        //     // return Date.now() - timeIn;
-        //     var timeIn = Date.parse(timeIn);
-        //     return Date.now() - timeIn;
-        //
-        // }
+        function getTimeElapsed(timeIn) {
+            var timeIn = Date.parse(timeIn);
+            // returns time elapsed in ms
+            // console.log(Date.now() - timeIn);
+            return Date.now() - Date.parse(timeIn);
+        }
 
     }
 })();

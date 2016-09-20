@@ -16,7 +16,9 @@
 				<td>{{item.medicalField.name}}</td>
 				<td>{{item.symptoms}}</td>
                 <td>{{item.painScale}}</td>
-                <td><span am-time-ago="item.checkInTime"></span></td>
+                <!-- <td><span>{{patientQueue.getTimeElapsed(item.checkInTime) / 60000 | amDurationFormat : 'minute'}}</span></td> -->
+								<td><span>{{item.checkInTime | amDifference : null : 'minutes' | amDurationFormat: 'minute'}}</span></td>
+
 			</tr>
 		</tbody>
 
