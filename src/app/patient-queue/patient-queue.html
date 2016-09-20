@@ -1,85 +1,27 @@
 <div class="container">
-  <h2>Patient Queue</h2>
-	<table class="table table-hover">
-		<thead>
-		<tr>
-			<th>Name</th>
-			<th>Medical Field</th>
-			<th>Symptoms</th>
-			<th>Pain Assessment</th>
-            <th>Time Waited</th>
-	    </tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="item in patientQueue.queue" ui-sref="patientDetail({patientCheckInId:item.patientCheckInId})">
-				<td>{{item.patient.firstName}} {{item.patient.lastName}}</td>
-				<td>{{item.medicalField.name}}</td>
-				<td>{{item.symptoms}}</td>
+    <h2>Patient Queue</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Medical Field</th>
+                <th>Symptoms</th>
+                <th>Pain Assessment</th>
+                <th>Time Waited</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in patientQueue.queue" ui-sref="patientDetail({patientCheckInId:item.patientCheckInId})">
+                <td>{{item.patient.firstName}} {{item.patient.lastName}}</td>
+                <td>{{item.medicalField.name}}</td>
+                <td>{{item.symptoms}}</td>
                 <td>{{item.painScale}}</td>
-                <!-- <td><span>{{patientQueue.getTimeElapsed(item.checkInTime) / 60000 | amDurationFormat : 'minute'}}</span></td> -->
-								<td><span>{{item.checkInTime | amDifference : null : 'minutes' | amDurationFormat: 'minute'}}</span></td>
-
-			</tr>
-		</tbody>
-
-	</table>
+                <td><span>{{item.checkInTime | amDifference : null : 'minutes' | amDurationFormat: 'minute'}}</span></td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
