@@ -14,7 +14,7 @@
             getPatient: getPatient
         };
 
-        var patientUrl = apiUrl + 'patient';
+        var patientUrl = apiUrl + 'patients';
 
         return service;
 

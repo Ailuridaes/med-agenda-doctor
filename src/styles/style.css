@@ -6,3 +6,6 @@ body {
     outline: 1px solid black;
     text-align: center;
 }
+.btn .btn-primary .btn-lg .btn-block{
+	align-content: center;
+}
