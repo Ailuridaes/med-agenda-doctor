@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'angularMoment'])
+        .module('app', ['ui.router', 'angularMoment', 'toastr'])
 
         .config(function($stateProvider, $urlRouterProvider){
-        	$urlRouterProvider.otherwise('/doctorList');
+        	$urlRouterProvider.otherwise('/doctor-list');
 
         	$stateProvider
 
@@ -24,7 +24,10 @@
             .state('patientQueue', {
                 url: '/patient-queue/:doctorId',
                 templateUrl: '/app/patient-queue/patient-queue.html',
-                controller: 'PatientQueueController as patientQueue'
+                controller: 'PatientQueueController as patientQueue',
+                params: {
+                    doctor: null
+                }
             })
             .state('patientDetail', {
                 url: '/patient-detail/:patientCheckInId',

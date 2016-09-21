@@ -1,5 +1,7 @@
 <div class="container">
-	<h2>Doctors</h2>
+	<h2>Doctors
+		<button class="btn btn-primary pull-right" ui-sref="patientQueue()">Full Queue</button>
+	</h2>
 	<table class="table">
 		<thead>
 		<tr>
@@ -22,7 +24,7 @@
 					<span ng-if="!doctor.checkInTime" class="label label-danger">Not Checked In</span>
 				</td>
 				<td>
-					<button ng-if="doctor.checkInTime" class="btn btn-primary" ui-sref="patientQueue({doctorId:doctor.doctorId})">Patient Queue</button>
+					<button ng-if="doctor.checkInTime" class="btn btn-primary" ui-sref="patientQueue({doctorId:doctor.doctorId, doctor:doctor})">Patient Queue</button>
 					<button ng-if="!doctor.checkInTime" class="btn btn-default" ui-sref="checkIn">Check In</button>
 				</td>
 			</tr>

@@ -1,5 +1,8 @@
 <div class="container">
-    <h2>Patient Queue</h2>
+    <h2>
+        <span ng-if="patientQueue.doctor.doctorId">Dr. {{patientQueue.doctor.lastName}} - </span>
+        Patient Queue
+    </h2>
     <table class="table table-hover">
         <thead>
             <tr>
