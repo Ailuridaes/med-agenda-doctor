@@ -37,10 +37,10 @@
                 controller: 'PatientDetailController as patientDetail'
             })
 
-            .state('doctorCheckOut', {
-                url: '/doctorcheckout',
-                templateUrl: '/app/doctor-checkout/doctor-checkout.html',
-                controller: 'DoctorCheckOutController as checkOut'
+            .state('checkOut', {
+                url: '/checkout',
+                templateUrl: '/app/checkout/checkout.html',
+                controller: 'CheckOutController as checkOut'
             });
         });
 
