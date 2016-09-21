@@ -4,7 +4,7 @@
 		<thead>
 		<tr>
 			<th>Name</th>
-			<th>Specialty</th>
+			<th>Specialties</th>
 			<th>Status</th>
 			<th></th>
 	    </tr>
@@ -17,8 +17,14 @@
 						{{specialty.medicalField.name}}<span ng-hide="$last">, </span>
 					</span>
 				</td>
-				<td><span ng-repeat="checkin in doctor.doctorCheckIns">Checked In {{checkin.checkInTime}}</span></td>
-				<td><button class="btn btn-primary">Patient Queue</button> </td>
+				<td>
+					<span ng-if="doctor.checkInTime"><span class="label label-success">Checked In</span> {{doctor.checkInTime | amCalendar:referenceTime:formats}}</span>
+					<span ng-if="!doctor.checkInTime" class="label label-danger">Not Checked In</span>
+				</td>
+				<td>
+					<button ng-if="doctor.checkInTime" class="btn btn-primary" ui-sref="patientQueue({doctorId:doctor.doctorId})">Patient Queue</button>
+					<button ng-if="!doctor.checkInTime" class="btn btn-default" ui-sref="checkIn">Check In</button>
+				</td>
 			</tr>
 
 		</tbody>

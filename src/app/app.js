@@ -5,14 +5,9 @@
         .module('app', ['ui.router', 'angularMoment'])
 
         .config(function($stateProvider, $urlRouterProvider){
-        	$urlRouterProvider.otherwise('/feature');
+        	$urlRouterProvider.otherwise('/doctorList');
 
         	$stateProvider
-        	.state('feature', {
-        		url: '/feature',
-        		templateUrl: '/app/feature/feature.html',
-        		controller: 'FeatureController as feature'
-        	})
 
             .state('checkIn', {
                 url: '/checkin',
