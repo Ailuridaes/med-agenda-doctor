@@ -37,12 +37,12 @@
             return defer.promise;
         }
 
-        function checkOut(checkIn) {
+        function checkOut(doctorId) {
             var defer = $q.defer();
 
             $http({
-                method: 'POST',
-                url: doctorCheckInUrl + '/Checkout/' + checkIn.doctorCheckInId,
+                method: 'PUT',
+                url: doctorCheckInUrl + '/Checkout/' + doctorId,
                 data: checkIn
             }).then(
                 function(res) {

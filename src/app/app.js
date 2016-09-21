@@ -14,6 +14,11 @@
                 templateUrl: '/app/checkin/checkin.html',
                 controller: 'CheckInController as checkIn'
             })
+            .state('checkOut', {
+                url: '/checkout',
+                templateUrl: '/app/checkout/checkout.html',
+                controller: 'CheckOutController as checkOut'
+            })
 
             .state('doctorList', {
                 url: '/doctor-list',
@@ -33,13 +38,8 @@
                 url: '/patient-detail/:patientCheckInId',
                 templateUrl: '/app/patient-details/patient-detail.html',
                 controller: 'PatientDetailController as patientDetail'
-            })
-
-            .state('checkOut', {
-                url: '/checkout',
-                templateUrl: '/app/checkout/checkout.html',
-                controller: 'CheckOutController as checkOut'
             });
+
         });
 
 })();

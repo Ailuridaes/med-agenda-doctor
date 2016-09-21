@@ -5,18 +5,24 @@
         .module('app')
         .controller('CheckOutController', CheckOutController);
 
-    CheckOutController.$inject = ['$stateParams'];
+    CheckOutController.$inject = ['doctorCheckInFactory', '$state', 'toastr'];
 
     /* @ngInject */
-    function CheckOutController($stateParams) {
+    function CheckOutController(doctorCheckInFactory, $state, toastr) {
         var vm = this;
         vm.title = 'CheckOutController';
+        vm.checkOut = checkOut;
 
-        activate();
-
-        ////////////////
-
-        function activate() {
+        function checkOut(doctorId){
+            doctorCheckInFactory.checkOut(doctorId).then(
+                function(){
+                    toastr.success('Successfully logged out.', 'Success!');
+                    $state.go('doctorList');
+                },
+                function(error) {
+                    toastr.error(error.data.message, 'Error');
+                }
+            );
         }
     }
 })();
