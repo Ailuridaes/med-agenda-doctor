@@ -1,55 +1,110 @@
 <br>
-<button type="button" class="btn btn-primary btn-lg btn-block">Accept Patient</button>
-
-<div class="patient" class="container" class="column">
-    <div class="col-sm-4 col-sm-offset-2">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <label class="well well-sm" for="patient name">Patient Name</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.firstName}} {{patientDetail.patientCheckIn.patient.lastName}}</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="address">Email Address</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.email}}</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="Age">DoB</label>
-            </li>
-            <li class="list-group-item"> {{patientDetail.patientCheckIn.patient.dateOfBirth | date:"MMMM d, y"}}</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="last visit">Last Visit</label>
-            </li>
-            <li class="list-group-item">June 14, 2015</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="reason for visit">Reason for Visit</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.symptoms}} </li>
-
-        </ul>
+<div class="container col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main column">
+    <div class="row">
+        <div class="col-sm-12">
+            <uib-tabset active="activeJustified" justified="true">
+                <uib-tab heading="Checked-In Patients">
+                    <table class="customTable table table-hover">
+                        <thead class="thead">
+                            <tr>
+                                <th class="table-header">
+                                    Patient Name
+                                </th>
+                                <th>
+                                    Email Address
+                                </th>
+                                <th>
+                                    DoB
+                                </th>
+                                <th>
+                                    Age
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.firstName}} {{patientDetail.patientCheckIn.patient.lastName}}
+                                </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.email}}
+                                </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.dateOfBirth | date:"MMMM d, y"}}
+                                </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.dateOfBirth | ageFilter}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+                <hr>
+                <uib-tab heading="All Patients">
+                    <table class="table table-hover col-sm-12">
+                        <thead class="thead">
+                            <tr>
+                                <th class="text-center">
+                                    Last Visit
+                                </th>
+                                <th class="text-center">
+                                    Reason for Visit
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    June 14, 2015
+                                </td>
+                                <td class="text-center">
+                                    {{patientDetail.patientCheckIn.patient.chronicConditions}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+                <br>
+                <uib-tab heading="All Patients">
+                    <table class="table table-hover col-sm-12">
+                        <thead class="thead">
+                            <tr>
+                                <th>
+                                    Allergies
+                                </th>
+                                <th>
+                                    Medication
+                                </th>
+                                <th>
+                                    Chronic Conditions
+                                </th>
+                                <th>
+                                    Dying?
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.allergies}}
+                                </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.medications}}
+                                </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.chronicConditions}}
+                                </td>
+                                <td>
+                                    Probably
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+                <br>
+            </uib-tabset>
+        </div>
     </div>
-    <div class="col-sm-4">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <label class="well well-sm" for="medication">Medication</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.medications}}</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="chronic">Chronic Conditions</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.chronicConditions}}</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="Age"> Age</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.dateOfBirth | ageFilter}}</li>
-            <li class="list-group-item">
-                <label class="well well-sm" for="allergies">Allergies</label>
-            </li>
-            <li class="list-group-item">{{patientDetail.patientCheckIn.patient.allergies}} </li>
-
-            <li class="list-group-item">
-                <label class="well well-sm" for="death?">Dying?</label>
-            </li>
-            <li class="list-group-item">Probably</li>
-        </ul>
-    </div>
+            <button ng-click="patientDetail.getPatientCheckIn()" type="button" class="btn btn-danger btn-lg btn-block">Accept Patient</button>
+        <br>
 </div>
