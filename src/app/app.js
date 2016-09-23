@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'angularMoment', 'toastr'])
+        .module('app', ['ui.router', 'angularMoment', 'toastr', 'ui.bootstrap'])
 
         .config(function($stateProvider, $urlRouterProvider){
         	$urlRouterProvider.otherwise('/doctor-list');

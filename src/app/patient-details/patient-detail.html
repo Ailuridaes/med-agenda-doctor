@@ -1,46 +1,74 @@
 <br>
 <div class="container col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main column">
+    <div class="well text-center patient-title">
+        <h1 class="patient-title">{{patientDetail.patientCheckIn.patient.firstName}}
+        {{patientDetail.patientCheckIn.patient.lastName}}</h1>
+    </div>
+<hr>
     <div class="row">
         <div class="col-sm-12">
             <uib-tabset active="activeJustified" justified="true">
-                <uib-tab heading="Checked-In Patients">
+                <uib-tab heading="Current Status">
                     <table class="customTable table table-hover">
                         <thead class="thead">
                             <tr>
-                                <th class="table-header">
-                                    Patient Name
+                                <th class="text-center">
+                                    Symptoms
                                 </th>
-                                <th>
-                                    Email Address
+                                <th class="text-center">
+                                    Painscale
                                 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    {{patientDetail.patientCheckIn.symptoms}}
+                                </td>
+                                <td class="text-center">
+                                    {{patientDetail.patientCheckIn.painScale}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+                <uib-tab heading="Patient Info">
+                    <table class="customTable table table-hover">
+                        <thead class="thead">
+                            <tr>
                                 <th>
                                     DoB
                                 </th>
                                 <th>
                                     Age
                                 </th>
+                                <th>
+                                    Telehpone
+                                </th>
+                                <th>
+                                    Email Address
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    {{patientDetail.patientCheckIn.patient.firstName}} {{patientDetail.patientCheckIn.patient.lastName}}
-                                </td>
-                                <td>
-                                    {{patientDetail.patientCheckIn.patient.email}}
-                                </td>
                                 <td>
                                     {{patientDetail.patientCheckIn.patient.dateOfBirth | date:"MMMM d, y"}}
                                 </td>
                                 <td>
                                     {{patientDetail.patientCheckIn.patient.dateOfBirth | ageFilter}}
                                 </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.telephone}} 
+                                </td>
+                                <td>
+                                    {{patientDetail.patientCheckIn.patient.email}}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </uib-tab>
-                <hr>
-                <uib-tab heading="All Patients">
+                <uib-tab heading="Visit History">
                     <table class="table table-hover col-sm-12">
                         <thead class="thead">
                             <tr>
@@ -50,61 +78,70 @@
                                 <th class="text-center">
                                     Reason for Visit
                                 </th>
+                                <th class="text-center">
+                                    Medical Field
+                                </th>
+                                <th class="text-center">
+                                    Resolution
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr ng-repeat="checkIn in patientDetail.patient.patientCheckIns">
                                 <td class="text-center">
-                                    June 14, 2015
+                                    {{checkIn.checkInTime}}
                                 </td>
                                 <td class="text-center">
-                                    {{patientDetail.patientCheckIn.patient.chronicConditions}}
+                                    {{checkIn.symptoms}}
+                                </td>
+                                <td class="text-center">
+                                    {{checkIn.medicalField.name}}
+                                </td>
+                                <td class="text-center">
+                                    {{checkIn.resolution}}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </uib-tab>
-                <br>
-                <uib-tab heading="All Patients">
+                <uib-tab heading="Medical History">
                     <table class="table table-hover col-sm-12">
                         <thead class="thead">
                             <tr>
-                                <th>
+                                <th class="text-center">
                                     Allergies
                                 </th>
-                                <th>
-                                    Medication
+                                <th class="text-center">
+                                    Medications
                                 </th>
-                                <th>
+                                <th class="text-center">
                                     Chronic Conditions
-                                </th>
-                                <th>
-                                    Dying?
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="text-center">
                                     {{patientDetail.patientCheckIn.patient.allergies}}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{patientDetail.patientCheckIn.patient.medications}}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{patientDetail.patientCheckIn.patient.chronicConditions}}
-                                </td>
-                                <td>
-                                    Probably
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </uib-tab>
-                <br>
             </uib-tabset>
         </div>
     </div>
-            <button ng-click="patientDetail.getPatientCheckIn()" type="button" class="btn btn-danger btn-lg btn-block">Accept Patient</button>
-        <br>
+        <div class="col-xs-6 col-xs-offset-3">
+            <!-- Accept button - active -->
+            <button ng-click="assignment.startTime(); acceptBtn = !acceptBtn" ng-hide="acceptBtn" type="button" class="btn btn-primary btn-lg btn-block">Accept</button>
+            <!-- Complete button - inactive until accept button is pressed -->
+            <button ng-click="patientDetail.patientCheckInResolution(); acceptBtn = !acceptBtn" ng-show="acceptBtn" type="button" class="btn btn-danger btn-lg btn-block">Complete</button>
+            <br>
+        </div>
 </div>

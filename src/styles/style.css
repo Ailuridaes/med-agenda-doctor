@@ -237,6 +237,24 @@ ul.topnav li.icon {display: none;}
 
 
 /*========================================
+*   Patient detail page
+=========================================*/
+
+.nav-tabs.nav-justified > .active > a, 
+.nav-tabs.nav-justified > .active > a:hover, 
+.nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+    background-color: #428bca;
+    color: #fff;
+}
+
+.patient-title {
+	background-color: #696969;
+	color: #fff;
+	font-size:  50px;
+}
+
+/*========================================
 *   Backgrounds
 =========================================*/
 
