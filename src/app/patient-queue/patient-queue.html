@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in patientQueue.queue" ui-sref="patientDetail({patientCheckInId:item.patientCheckInId})">
+            <tr ng-repeat="item in patientQueue.queue" ng-click="patientQueue.doctor.doctorId && patientQueue.navigate(item.patientCheckInId)">
                 <td>{{item.patient.firstName}} {{item.patient.lastName}}</td>
                 <td>{{item.medicalField.name}}</td>
                 <td>{{item.symptoms}}</td>

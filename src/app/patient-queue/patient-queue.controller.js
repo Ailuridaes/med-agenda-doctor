@@ -5,14 +5,15 @@
         .module('app')
         .controller('PatientQueueController', PatientQueueController);
 
-    PatientQueueController.$inject = ['patientCheckInFactory', 'doctorFactory', '$stateParams'];
+    PatientQueueController.$inject = ['patientCheckInFactory', 'doctorFactory', '$state', '$stateParams'];
 
     /* @ngInject */
-    function PatientQueueController(patientCheckInFactory, doctorFactory, $stateParams) {
+    function PatientQueueController(patientCheckInFactory, doctorFactory, $state, $stateParams) {
         var vm = this;
         vm.title = 'PatientQueueController';
         vm.queue = [];
         vm.doctor = {};
+        vm.navigate = navigate;
 
         activate();
 
@@ -40,5 +41,8 @@
             );
         }
 
+        function navigate(patientCheckInId) {
+            $state.go('patientDetail', {'patientCheckInId': patientCheckInId, 'doctor': vm.doctor});
+        }
     }
 })();

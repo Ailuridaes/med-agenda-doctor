@@ -11,7 +11,7 @@
             .state('doctot', {
                 url: '/doctor',
                 abstract: true,
-                templateUrl: '/app/layout/admin.shell.html'                   
+                templateUrl: '/app/layout/admin.shell.html'
             })
                 .state('checkIn', {
                     url: '/checkin',
@@ -41,7 +41,10 @@
                 .state('patientDetail', {
                     url: '/patient-detail/:patientCheckInId',
                     templateUrl: '/app/patient-details/patient-detail.html',
-                    controller: 'PatientDetailController as patientDetail'
+                    controller: 'PatientDetailController as patientDetail',
+                    params: {
+                        doctor: null
+                    }
                 });
 
         });
