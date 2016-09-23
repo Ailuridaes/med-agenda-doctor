@@ -6,16 +6,16 @@
         .controller('PatientDetailController', PatientDetailController)
         .filter('ageFilter', ageFilter);
 
-        PatientDetailController.$inject = ['patientCheckInFactory', 'assignmentFactory', '$state', '$stateParams', 'toastr'];
+        PatientDetailController.$inject = ['assignmentFactory', 'doctorFactory', 'patientCheckInFactory', '$state', '$stateParams', 'toastr'];
 
 
     /* @ngInject */
-    function PatientDetailController(patientCheckInFactory, assignmentFactory, $state, $stateParams, toastr) {
+    function PatientDetailController(assignmentFactory, doctorFactory, patientCheckInFactory, $state, $stateParams, toastr) {
         var vm = this;
         vm.title = 'PatientDetailController';
         vm.patient = {};
         vm.patientCheckIn = {};
-        vm.doctor;
+        vm.doctor = {};
         vm.assignment = {};
         vm.getPatientCheckIn = getPatientCheckIn;
         vm.startAssignment = startAssignment;
@@ -26,21 +26,40 @@
         ////////////////
 
         function activate() {
-            vm.doctor = $stateParams.doctor;
+            if($stateParams.doctor) {
+                vm.doctor = $stateParams.doctor;
+            } else if($stateParams.doctorId) {
+                // navigation via url, need to GET doctor info
+                doctorFactory.getDoctor($stateParams.doctorId).then(
+                    function(doctor) {
+                        vm.doctor = doctor;
+                    }
+                );
+            }
             var patientCheckInId = $stateParams.patientCheckInId;
             getPatientCheckIn(patientCheckInId);
+
+            // get assignment if it already exists
+            assignmentFactory.getAssignment($stateParams.doctorId, patientCheckInId).then(
+                function(data) {
+                    vm.assignment = data;
+                    // NOTE: if no assignment exists, data == []
+                },
+                function(res) {
+                    toastr.error(error.data.message, 'Error');
+                }
+            );
         }
 
         function getPatientCheckIn(patientCheckInId) {
-            patientCheckInFactory.getPatientCheckIn(patientCheckInId)
-            .then(
+            patientCheckInFactory.getPatientCheckIn(patientCheckInId).then(
                 function(data) {
                     vm.patientCheckIn = data;
                     // NOTE: Database rewrite -> DTOs may necessitate a GET patient or patientCheckIns call
                     vm.patient = data.patient;
                 },
                 function(error) {
-                    //TODO: error handling
+                    toastr.error(error.data.message, 'Error');
                 }
             );
         }

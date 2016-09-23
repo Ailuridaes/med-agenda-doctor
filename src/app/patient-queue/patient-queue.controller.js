@@ -42,7 +42,7 @@
         }
 
         function navigate(patientCheckInId) {
-            $state.go('patientDetail', {'patientCheckInId': patientCheckInId, 'doctor': vm.doctor});
+            $state.go('patientDetail', {'doctorId': vm.doctor.doctorId, 'patientCheckInId': patientCheckInId, 'doctor': vm.doctor});
         }
     }
 })();

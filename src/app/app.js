@@ -39,7 +39,7 @@
                     }
                 })
                 .state('patientDetail', {
-                    url: '/patient-detail/:patientCheckInId',
+                    url: '/patient-detail/:doctorId/:patientCheckInId',
                     templateUrl: '/app/patient-details/patient-detail.html',
                     controller: 'PatientDetailController as patientDetail',
                     params: {

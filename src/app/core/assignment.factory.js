@@ -16,7 +16,7 @@
             deleteAssignment: deleteAssignment
         };
 
-        var assignmentUrl = apiUrl + 'assignment'
+        var assignmentUrl = apiUrl + 'assignments'
 
         return service;
 
@@ -36,12 +36,12 @@
             return defer.promise;
         }
 
-        function getAssignment(doctorCheckInId, patientCheckInId) {
+        function getAssignment(doctorId, patientCheckInId) {
             var defer = $q.defer();
 
             $http({
                 method: 'GET',
-                url: assignmentUrl + '/' + doctorCheckInId + '/' + patientCheckIn
+                url: assignmentUrl + '/' + doctorId + '/' + patientCheckInId
             }).then(
                 function(res) {
                     defer.resolve(res.data);
