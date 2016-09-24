@@ -1,8 +1,8 @@
 <br>
 <div class="container col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main column">
     <div class="well text-center patient-title">
-        <h1 class="patient-title">{{patientDetail.patientCheckIn.patient.firstName}}
-        {{patientDetail.patientCheckIn.patient.lastName}}</h1>
+        <h1 class="patient-title">{{patientDetail.patient.firstName}}
+        {{patientDetail.patient.lastName}}</h1>
     </div>
 <hr>
     <div class="row">
@@ -16,7 +16,7 @@
                                     Symptoms
                                 </th>
                                 <th class="text-center">
-                                    Painscale
+                                    Pain Assessment
                                 </th>
                             </tr>
                         </thead>
@@ -37,13 +37,13 @@
                         <thead class="thead">
                             <tr>
                                 <th>
-                                    DoB
+                                    Birth Date
                                 </th>
                                 <th>
                                     Age
                                 </th>
                                 <th>
-                                    Telehpone
+                                    Telephone
                                 </th>
                                 <th>
                                     Email Address
@@ -53,16 +53,16 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    {{patientDetail.patientCheckIn.patient.dateOfBirth | date:"MMMM d, y"}}
+                                    {{patientDetail.patient.dateOfBirth | date:"MMMM d, y"}}
                                 </td>
                                 <td>
-                                    {{patientDetail.patientCheckIn.patient.dateOfBirth | ageFilter}}
+                                    {{patientDetail.patient.dateOfBirth | ageFilter}}
                                 </td>
                                 <td>
-                                    {{patientDetail.patientCheckIn.patient.telephone}} 
+                                    {{patientDetail.patient.telephone}}
                                 </td>
                                 <td>
-                                    {{patientDetail.patientCheckIn.patient.email}}
+                                    {{patientDetail.patient.email}}
                                 </td>
                             </tr>
                         </tbody>
@@ -122,13 +122,13 @@
                         <tbody>
                             <tr>
                                 <td class="text-center">
-                                    {{patientDetail.patientCheckIn.patient.allergies}}
+                                    {{patientDetail.patient.allergies}}
                                 </td>
                                 <td class="text-center">
-                                    {{patientDetail.patientCheckIn.patient.medications}}
+                                    {{patientDetail.patient.medications}}
                                 </td>
                                 <td class="text-center">
-                                    {{patientDetail.patientCheckIn.patient.chronicConditions}}
+                                    {{patientDetail.patient.chronicConditions}}
                                 </td>
                             </tr>
                         </tbody>
