@@ -25,7 +25,7 @@
 
             $http({
                 method: 'POST',
-                url: assignmentUrl + '/' + doctorId + '/' + patientCheckIn
+                url: assignmentUrl + '/' + doctorId + '/' + patientCheckInId
             }).then(
                 function(res) {
                     defer.resolve(res.data);
@@ -58,7 +58,7 @@
 
             $http({
                 method: 'PUT',
-                url: assignmentUrl + '/' + doctorCheckInId + '/' + patientCheckIn,
+                url: assignmentUrl + '/' + assignment.doctorCheckInId + '/' + assignment.patientCheckIn,
                 data: assignment
             }).then(
                 function(res) {

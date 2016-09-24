@@ -6,11 +6,11 @@
         .controller('PatientDetailController', PatientDetailController)
         .filter('ageFilter', ageFilter);
 
-        PatientDetailController.$inject = ['assignmentFactory', 'doctorFactory', 'patientCheckInFactory', '$state', '$stateParams', 'toastr'];
+        PatientDetailController.$inject = ['assignmentFactory', 'doctorFactory', 'patientCheckInFactory', '$q', '$state', '$stateParams', 'toastr'];
 
 
     /* @ngInject */
-    function PatientDetailController(assignmentFactory, doctorFactory, patientCheckInFactory, $state, $stateParams, toastr) {
+    function PatientDetailController(assignmentFactory, doctorFactory, patientCheckInFactory, $q, $state, $stateParams, toastr) {
         var vm = this;
         vm.title = 'PatientDetailController';
         vm.patient = {};
