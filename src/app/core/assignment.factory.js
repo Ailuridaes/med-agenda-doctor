@@ -58,7 +58,7 @@
 
             $http({
                 method: 'PUT',
-                url: assignmentUrl + '/' + assignment.doctorCheckInId + '/' + assignment.patientCheckIn,
+                url: assignmentUrl + '/end/' + assignment.doctorCheckInId + '/' + assignment.patientCheckInId,
                 data: assignment
             }).then(
                 function(res) {

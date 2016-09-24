@@ -43,10 +43,13 @@
             assignmentFactory.getAssignment($stateParams.doctorId, patientCheckInId).then(
                 function(data) {
                     vm.assignment = data;
-                    // NOTE: if no assignment exists, data == []
                 },
-                function(res) {
-                    toastr.error(error.data.message, 'Error');
+                function(error) {
+                    if (error.status == 404) {
+                        // OK, no assignment exists
+                    } else {
+                        toastr.error(error.data.message, 'Error');
+                    }
                 }
             );
         }
@@ -86,7 +89,7 @@
             $q.all(promises).then(
                 function(data) {
                     toastr.success('Assignment complete!');
-                    $state.go('patientQueue, {doctorId: vm.doctor.doctorId, doctor: vm.doctor}');
+                    $state.go('patientQueue', {'doctorId': vm.doctor.doctorId, 'doctor': vm.doctor});
                 },
                 function(error) {
                     toastr.error(error.data.message, 'Error');

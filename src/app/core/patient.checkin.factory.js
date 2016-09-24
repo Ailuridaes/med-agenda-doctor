@@ -11,7 +11,8 @@
     function patientCheckInFactory($http, $q, apiUrl) {
         var service = {
             getPatientCheckIn: getPatientCheckIn,
-            getPatientQueue: getPatientQueue
+            getPatientQueue: getPatientQueue,
+            checkOutPatient: checkOutPatient
         };
 
         var patientCheckInUrl = apiUrl + 'PatientCheckIns';
@@ -57,7 +58,7 @@
 
             $http({
                 method: 'PUT',
-                url: patientCheckInUrl + '/' + patientCheckIn.patientCheckInId,
+                url: patientCheckInUrl + '/checkout/' + patientCheckIn.patientCheckInId,
                 data: patientCheckIn
             }).then(
                 function(res) {

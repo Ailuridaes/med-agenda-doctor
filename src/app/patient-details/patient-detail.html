@@ -138,12 +138,14 @@
         </div>
     </div>
         <div class="col-xs-6 col-xs-offset-3">
-            <!-- Accept button - active -->
-            <button ng-click="patientDetail.startAssignment(); acceptBtn = !acceptBtn" ng-hide="acceptBtn" type="button" class="btn btn-primary btn-lg btn-block">Accept</button>
-            <form>
-                <textarea placeholder="Please enter patient assessment" style="width:100%"  ng-show="acceptBtn" required></textarea>
-                <!-- Complete button - inactive until accept button is pressed -->
-                <button ng-click="patientDetail.endAssignment()" ng-show="acceptBtn" type="submit"  class="btn btn-danger btn-lg btn-block">Complete</button></form>
+            <!-- Accept button -->
+            <button ng-click="patientDetail.startAssignment();" ng-hide="patientDetail.assignment.startTime" type="button" class="btn btn-primary btn-lg btn-block">Accept</button>
+            <!-- Complete Assignment button -->
+            <button ng-click="isEndingCheckIn = true" ng-show="patientDetail.assignment.startTime && !isEndingCheckIn" type="button" class="btn btn-danger btn-lg btn-block">Complete</button>
+            <!-- Form to submit resolution -->
+            <form name="patientResolution" ng-show="isEndingCheckIn && patientDetail.assignment.startTime">
+                <textarea ng-model="patientDetail.patientCheckIn.resolution" placeholder="Please enter patient assessment" style="width:100%" required></textarea>
+                <button ng-click="patientResolution.$valid && patientDetail.endAssignment();" type="submit"  class="btn btn-danger btn-lg btn-block">Submit</button></form>
             </form>
             <br>
 
