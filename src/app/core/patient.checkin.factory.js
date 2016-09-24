@@ -52,5 +52,23 @@
             return defer.promise;
         }
 
+        function checkOutPatient(patientCheckIn) {
+            var defer = $q.defer();
+
+            $http({
+                method: 'PUT',
+                url: patientCheckInUrl + '/' + patientCheckIn.patientCheckInId,
+                data: patientCheckIn
+            }).then(
+                function(res) {
+                    defer.resolve(res.data);
+                }, function(res) {
+                    defer.reject(res);
+                }
+            );
+
+            return defer.promise;
+        }
+
     }
 })();

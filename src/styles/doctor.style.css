@@ -1,5 +1,5 @@
 /*========================================
-*   Login 
+*   Login
 =========================================*/
 
 .signon {
@@ -23,7 +23,7 @@
 
 
 /*========================================
-*   Charts 
+*   Charts
 =========================================*/
 
 .large {
@@ -118,7 +118,7 @@
 	margin: 0 -5px;
 }
 
-.panel-footer .input-group-btn:last-child>.btn, 
+.panel-footer .input-group-btn:last-child>.btn,
 .panel-footer .input-group-btn:last-child>.btn-group {
 	margin: 0;
 }
@@ -140,8 +140,8 @@
 .panel-blue .panel-body p,
 .panel-teal .panel-body p,
 .panel-orange .panel-body p,
-.panel-red .panel-body p { 
-	color: #fff; 
+.panel-red .panel-body p {
+	color: #fff;
 	color: rgba(255, 255, 255, .8);
 }
 
@@ -155,8 +155,8 @@
 .panel-blue .text-muted,
 .panel-teal .text-muted,
 .panel-orange .text-muted,
-.panel-red .text-muted { 
-	color: rgba(255, 255, 255, .5); 
+.panel-red .text-muted {
+	color: rgba(255, 255, 255, .5);
 }
 
 .dark-overlay {
@@ -480,9 +480,9 @@ h1.page-header {
 
 
 /*========================================
-*  Login 
+*  Login
 =========================================*/
-.login-screen {    
+.login-screen {
     margin-top: 80px;
 }
 

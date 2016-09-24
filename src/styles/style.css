@@ -1,13 +1,13 @@
-/* ================================= 
+/* =================================
   Base Layout Styles
 ==================================== */
 
 body {
 	background: #f1f4f7;
 	padding-top: 0px;
-    margin-top: 0px;
+  margin-top: 0px;
 	color: #5f6468;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 p {
@@ -25,6 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-weight: 300;
 	font-size: 40px;
+}
+
+h1.patient-title, h2.patient-title {
+	margin: 0;
+	padding: 20px;
+	border-radius: 4px;
 }
 
 h2 {
@@ -126,6 +132,9 @@ ul.topnav {
   padding: 0;
   overflow: hidden;
   background-color: #333;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
 }
 
 ul.topnav li {float: right;}
@@ -170,7 +179,7 @@ ul.topnav li.icon {display: none;}
 	margin-bottom: 20px;
 }
 
-.sidebar ul.nav a:hover, 
+.sidebar ul.nav a:hover,
 .sidebar ul.nav li.parent ul li a:hover {
 	text-decoration: none;
 	background-color: #e9ecf2;
@@ -240,8 +249,8 @@ ul.topnav li.icon {display: none;}
 *   Patient detail page
 =========================================*/
 
-.nav-tabs.nav-justified > .active > a, 
-.nav-tabs.nav-justified > .active > a:hover, 
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
     border-bottom-color: #fff;
     background-color: #428bca;
@@ -306,6 +315,23 @@ a.bg-danger:hover {
 	color: rgba(255, 255, 255, .75);
 }
 
+/*========================================
+*   Containers and Wells (content elements)
+=========================================*/
+
+.container	{
+	padding-top: 50px;
+}
+
+.well {
+	background: #fff;
+	margin-top: 25px;
+	padding-top: 15px;
+}
+
+.well h2 {
+	padding-bottom: 15px;
+}
 
 
 /*========================================
@@ -359,8 +385,8 @@ a.bg-danger:hover {
 /* 768px or smaller*/
 @media (max-width: 767px) {
 	.widget-left {
-    	height: 40px;	
-	}	
+    	height: 40px;
+	}
 }
 
 /* 768px or larger*/
@@ -376,7 +402,7 @@ a.bg-danger:hover {
 		margin: 0;
 		padding: 0;
 		overflow-x: hidden;
-		overflow-y: auto; 
+		overflow-y: auto;
 		background-color: #fff;
 		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
 	}
@@ -387,5 +413,5 @@ a.bg-danger:hover {
 
 
 @media (min-width: 1025px) {   /* When screen is 1025px or wider, these styles are applied */
-  
+
 }

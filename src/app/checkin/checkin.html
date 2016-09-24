@@ -1,12 +1,14 @@
 <div class="container">
 
   <div class="col-sm-4 col-sm-offset-4">
-    <form name="checkinForm" ng-submit="checkinForm.$valid && checkIn.checkIn(checkIn.doctorId)" class="form-signin">
-        <h2 class="form-signin-heading">Please Check In</h2>
-        <label for="doctorId" class="sr-only">Doctor ID</label>
-        <input ng-model="checkIn.doctorId" type="text" id="doctorId" class="form-control" placeholder="Doctor ID" required autofocus>
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Check In</button>
-    </form>
+    <div class="well">
+      <form name="checkinForm" ng-submit="checkinForm.$valid && checkIn.checkIn(checkIn.doctorId)" class="form-signin">
+          <h2 class="form-signin-heading">Please Check In</h2>
+          <label for="doctorId" class="sr-only">Doctor ID</label>
+          <input ng-model="checkIn.doctorId" type="text" id="doctorId" class="form-control" placeholder="Doctor ID" required autofocus>
+          <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Check In</button>
+      </form>
+    </div>
   </div>
   </div>

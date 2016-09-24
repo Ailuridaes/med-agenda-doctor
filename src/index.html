@@ -14,51 +14,49 @@
   <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
 
   <!-- inject:css -->
-  <link rel="stylesheet" href="styles/admin.style.css">
+  <link rel="stylesheet" href="styles/doctor.style.css">
   <link rel="stylesheet" href="styles/style.css">
   <!-- endinject -->
 
 </head>
 <body>
 
-<!-- ================================= 
+<!-- =================================
   NAV BAR
 ================================== -->
 
-<div class="wrapper">  
+<div class="wrapper">
    <ul class="topnav" id="myTopnav">
         <span><a class="navbar-brand" href="#">MedAgenda</a></span>
-
-        <li><a ui-sref="doctorList">Dashboard</a></li>
         <li><a ui-sref="doctorList">Doctors</a></li>
-        <li><a ui-sref="checkIn">CheckIn</a></li>
-        <li><a ui-sref="checkOut">CheckOut</a></li>
         <li><a ui-sref="patientQueue">Patient Queue</a></li>
+        <li><a ui-sref="checkIn">Check In</a></li>
+        <li><a ui-sref="checkOut">Check Out</a></li>
       <li class="icon">
         <a href="javascript:void(0);" style="font-size:15px;" onclick="navBarFunction()">☰</a>
       </li>
     </ul>   <!-- Navigation bar -->
 
-<!-- ================================= 
+<!-- =================================
  SIDE BAR
 ================================== -->
 
-  <!-- Mobile responsibe saidebar -->
+  <!-- Mobile responsive sidebar -->
   <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
       <!-- Sidebar -->
       <ul class="nav menu">
-          <li>
+          <li ui-sref-active="active">
             <a ui-sref="doctorList"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg>Doctors</a>
           </li>
-          <li>
-            <a ui-sref="checkIn"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>Check-In</a>
+          <li ui-sref-active="active">
+            <a  ui-sref="patientQueue"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Patient Queue</a>
           </li>
-          <li>
-              <a  ui-sref="checkOut"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Check-Out</a>
+          <li ui-sref-active="active">
+            <a ui-sref="checkIn"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>Check In</a>
           </li>
-          <li>
-              <a  ui-sref="patientQueue"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Patient Queue</a>
-          </li>        
+          <li ui-sref-active="active">
+              <a  ui-sref="checkOut"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Check Out</a>
+          </li>
       </ul> <!-- Sidebar -->
   </div> <!-- Mobile responsibe sidebar -->
 
@@ -66,7 +64,7 @@
   <div class="container">
     <div ui-view></div>
   </div> <!-- ui-view container div -->
-  
+
 </div>  <!-- Warapper div -->
 
   <!-- bower:js -->
@@ -83,15 +81,15 @@
   <!-- endbower -->
   <!-- inject:js -->
   <script src="app/app.js"></script>
-  <script src="app/doctor-list/doctor-list.controller.js"></script>
   <script src="app/checkin/checkin.controller.js"></script>
-  <script src="app/core/data.factory.js"></script>
+  <script src="app/checkout/checkout.controller.js"></script>
+  <script src="app/core/assignment.factory.js"></script>
   <script src="app/core/doctor.checkin.factory.js"></script>
   <script src="app/core/doctor.factory.js"></script>
   <script src="app/core/patient.checkin.factory.js"></script>
   <script src="app/core/patient.factory.js"></script>
   <script src="app/core/values.js"></script>
-  <script src="app/checkout/checkout.controller.js"></script>
+  <script src="app/doctor-list/doctor-list.controller.js"></script>
   <script src="app/layout/navbar.js"></script>
   <script src="app/patient-details/patient-detail.controller.js"></script>
   <script src="app/patient-queue/patient-queue.controller.js"></script>
