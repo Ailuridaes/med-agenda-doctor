@@ -7,6 +7,7 @@
     <table class="table table-hover table-responsive">
         <thead>
             <tr>
+                <th></th>
                 <th>Name</th>
                 <th>Medical Field</th>
                 <th>Symptoms</th>
@@ -16,6 +17,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in patientQueue.queue" ng-click="patientQueue.doctor.doctorId && patientQueue.navigate(item.patientCheckInId)">
+                <td><span ng-if="item.assignments.length" class="label label-success">In Progress</span></td>
                 <td>{{item.patient.firstName}} {{item.patient.lastName}}</td>
                 <td>{{item.medicalField.name}}</td>
                 <td>{{item.symptoms}}</td>
