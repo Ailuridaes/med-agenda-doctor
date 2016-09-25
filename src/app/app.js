@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ui.router', 'angularMoment', 'toastr'])
+        .module('app', ['ui.router', 'angularMoment', 'toastr', 'ui.bootstrap'])
 
         .config(function($stateProvider, $urlRouterProvider){
         	$urlRouterProvider.otherwise('/doctor-list');
@@ -11,7 +11,7 @@
             .state('doctot', {
                 url: '/doctor',
                 abstract: true,
-                templateUrl: '/app/layout/admin.shell.html'                   
+                templateUrl: '/app/layout/admin.shell.html'
             })
                 .state('checkIn', {
                     url: '/checkin',
@@ -39,9 +39,12 @@
                     }
                 })
                 .state('patientDetail', {
-                    url: '/patient-detail/:patientCheckInId',
+                    url: '/patient-detail/:doctorId/:patientCheckInId',
                     templateUrl: '/app/patient-details/patient-detail.html',
-                    controller: 'PatientDetailController as patientDetail'
+                    controller: 'PatientDetailController as patientDetail',
+                    params: {
+                        doctor: null
+                    }
                 });
 
         });

@@ -27,6 +27,12 @@ h1 {
 	font-size: 40px;
 }
 
+h1.patient-title, h2.patient-title {
+	margin: 0;
+	padding: 20px;
+	border-radius: 4px;
+}
+
 h2 {
 	font-weight: 300;
 	margin-bottom: 20px;
@@ -48,6 +54,10 @@ h3, h4 {
 .patient {
     outline: 1px solid black;
     text-align: center;
+}
+
+.well-sm {
+	background-color: #fff000;
 }
 
 
@@ -236,6 +246,24 @@ ul.topnav li.icon {display: none;}
 
 
 /*========================================
+*   Patient detail page
+=========================================*/
+
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+    background-color: #428bca;
+    color: #fff;
+}
+
+.patient-title {
+	background-color: #696969;
+	color: #fff;
+	font-size:  50px;
+}
+
+/*========================================
 *   Backgrounds
 =========================================*/
 
@@ -366,7 +394,7 @@ a.bg-danger:hover {
 	.sidebar {
 		display: block;
   		position: fixed;
-		top: 50px;
+		top: 52px;
 		bottom: 0;
 		left: 0;
 		z-index: 1000;

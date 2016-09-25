@@ -3,37 +3,32 @@
 
     angular
         .module('app')
-        .factory('dataFactory', dataFactory);
+        .factory('assignmentFactory', assignmentFactory);
 
-    dataFactory.$inject = ['$http', '$q', 'apiUrl'];
+    assignmentFactory.$inject = ['$http', '$q', 'apiUrl'];
 
     /* @ngInject */
-    function dataFactory($http, $q, apiUrl) {
+    function assignmentFactory($http, $q, apiUrl) {
         var service = {
-            addData: addData,
-            getDataList: getDataList,
-            getDatum: getDatum,
-            updateData: updateData,
-            deleteData: deleteData
+            startAssignment: startAssignment,
+            getAssignment: getAssignment,
+            endAssignment: endAssignment,
+            deleteAssignment: deleteAssignment
         };
 
-        var dataUrl = apiUrl + 'data'
+        var assignmentUrl = apiUrl + 'assignments'
 
         return service;
 
-        function addData(data) {
-
+        function startAssignment(doctorId, patientCheckInId) {
             var defer = $q.defer();
 
             $http({
                 method: 'POST',
-                url: dataUrl,
-                data: data
+                url: assignmentUrl + '/' + doctorId + '/' + patientCheckInId
             }).then(
                 function(res) {
-                    // returns added data
-                    var data = angular.fromJson(res.data);
-                    defer.resolve(data);
+                    defer.resolve(res.data);
                 }, function(res) {
                     defer.reject(res);
                 }
@@ -41,12 +36,12 @@
             return defer.promise;
         }
 
-        function getDataList() {
+        function getAssignment(doctorId, patientCheckInId) {
             var defer = $q.defer();
 
             $http({
                 method: 'GET',
-                url: dataUrl
+                url: assignmentUrl + '/' + doctorId + '/' + patientCheckInId
             }).then(
                 function(res) {
                     defer.resolve(res.data);
@@ -58,30 +53,13 @@
             return defer.promise;
         }
 
-        function getDatum(dataId) {
-            var defer = $q.defer();
-
-            $http({
-                method: 'GET',
-                url: dataUrl + '/' + dataId
-            }).then(
-                function(res) {
-                    defer.resolve(res.data);
-                }, function(res) {
-                    defer.reject(res);
-                }
-            );
-
-            return defer.promise;
-        }
-
-        function updateData(data) {
+        function endAssignment(assignment) {
             var defer = $q.defer();
 
             $http({
                 method: 'PUT',
-                url: dataUrl,
-                data: data
+                url: assignmentUrl + '/end/' + assignment.doctorCheckInId + '/' + assignment.patientCheckInId,
+                data: assignment
             }).then(
                 function(res) {
                     defer.resolve();
@@ -93,13 +71,13 @@
             return defer.promise;
         }
 
-        function deleteData(data) {
+        function deleteAssignment(data) {
 
             var defer = $q.defer();
 
             $http({
                 method: 'DELETE',
-                url: dataUrl + 'dataId'
+                url: assignmentUrl + 'dataId'
             }).then(
                 function(res) {
                     defer.resolve(res.data);

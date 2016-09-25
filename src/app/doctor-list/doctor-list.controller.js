@@ -51,7 +51,7 @@
                 function(data) {
                     vm.checkIns = data;
                 }
-            )
+            );
         }
 
         function setDoctorStatuses() {
