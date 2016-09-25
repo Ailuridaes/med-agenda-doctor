@@ -21,61 +21,6 @@
 	background-color:  #ee0000;
 }
 
-
-/*========================================
-*   Charts
-=========================================*/
-
-.large {
-	font-size: 2em;
-}
-
-.text-muted {
-	color: #9fadbb;
-}
-
-.color-gray { color: #5f6468; }
-.color-blue { color: #30a5ff; }
-.color-teal { color: #1ebfae; }
-.color-orange { color: #ffb53e; }
-.color-red { color: #f9243f; }
-
-.bg-primary .glyphicon-remove { color: #5f6468;}
-.bg-primary .glyphicon-remove:hover { color: #ef4040;}
-
-.no-padding {
-	padding: 0; margin: 0;
-}
-
-.glyphicon-xl {
-	font-size: 6em;
-}
-
-.glyphicon-l {
-	font-size: 3em;
-}
-
-.glyphicon-m {
-	font-size: 1.5em;
-}
-
-.glyphicon-s {
-	font-size: 0.75em;
-}
-
-.form-control {
-	border: 1px solid #eee;
-	box-shadow: none;
-}
-
-.form-control:focus {
-	border: 1px solid #30a5ff;
-	outline: 0;
-	box-shadow: inset 0px 0px 0px 1px #30a5ff;
-}
-
-
-
 /*========================================
 *   Panels
 =========================================*/
@@ -201,6 +146,9 @@
 	background: #fff;
 }
 
+/*Alerts*/
+
+.alert-green { background-color: #3b6; color: #fff; }
 
 
 /*========================================
