@@ -1,0 +1,36 @@
+<div class="container col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<!-- <div class=""> -->
+	<div class="well">
+		<h2>Doctors
+			<button class="btn btn-primary pull-right" ui-sref="patientQueue()">Full Queue</button>
+		</h2>
+		<table class="table">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Specialties</th>
+				<th>Status</th>
+				<th></th>
+		    </tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="doctor in doctorList.doctors">
+					<td>Dr. {{doctor.firstName}} {{doctor.lastName}}</td>
+					<td>
+						<span ng-repeat="specialty in doctor.specialties">
+							{{specialty.medicalField.name}}<span ng-hide="$last">, </span>
+						</span>
+					</td>
+					<td>
+						<span ng-if="doctor.checkInTime"><span class="label label-success">Checked In</span> {{doctor.checkInTime | amCalendar:referenceTime:formats}}</span>
+						<span ng-if="!doctor.checkInTime" class="label label-danger">Not Checked In</span>
+					</td>
+					<td>
+						<button ng-if="doctor.checkInTime" class="btn btn-primary" ui-sref="patientQueue({doctorId:doctor.doctorId, doctor:doctor})">Patient Queue</button>
+						<button ng-if="!doctor.checkInTime" class="btn btn-default" ui-sref="checkIn">Check In</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

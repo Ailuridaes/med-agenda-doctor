@@ -1,0 +1,156 @@
+<br>
+<div class="container col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main column">
+    <div class="well text-center patient-title">
+        <h1 class="patient-title">{{patientDetail.patient.firstName}}
+        {{patientDetail.patient.lastName}}</h1>
+    </div>
+
+    <!-- Assignment Status -->
+    <div class="alert alert-green" ng-show="patientDetail.assignment.startTime" role="alert">In Progress</div>
+
+
+    <div class="well">
+        <uib-tabset active="activeJustified" justified="true">
+            <uib-tab heading="Current Visit">
+                <table class="customTable table table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th class="text-center">
+                                Symptoms
+                            </th>
+                            <th class="text-center">
+                                Pain Assessment
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                {{patientDetail.patientCheckIn.symptoms}}
+                            </td>
+                            <td class="text-center">
+                                {{patientDetail.patientCheckIn.painScale}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+            <uib-tab heading="Patient Info">
+                <table class="customTable table table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th>
+                                Birth Date
+                            </th>
+                            <th>
+                                Age
+                            </th>
+                            <th>
+                                Telephone
+                            </th>
+                            <th>
+                                Email Address
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{patientDetail.patient.dateOfBirth | date:"MMMM d, y"}}
+                            </td>
+                            <td>
+                                {{patientDetail.patient.dateOfBirth | ageFilter}}
+                            </td>
+                            <td>
+                                {{patientDetail.patient.telephone}}
+                            </td>
+                            <td>
+                                {{patientDetail.patient.email}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+            <uib-tab heading="Visit History">
+                <table class="customTable table table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th class="text-center">
+                                Last Visit
+                            </th>
+                            <th class="text-center">
+                                Reason for Visit
+                            </th>
+                            <th class="text-center">
+                                Medical Field
+                            </th>
+                            <th class="text-center">
+                                Resolution
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="checkIn in patientDetail.patient.patientCheckIns">
+                            <td class="text-center">
+                                {{checkIn.checkInTime}}
+                            </td>
+                            <td class="text-center">
+                                {{checkIn.symptoms}}
+                            </td>
+                            <td class="text-center">
+                                {{checkIn.medicalField.name}}
+                            </td>
+                            <td class="text-center">
+                                {{checkIn.resolution}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+            <uib-tab heading="Medical History">
+                <table class="customTable table table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th class="text-center">
+                                Allergies
+                            </th>
+                            <th class="text-center">
+                                Medications
+                            </th>
+                            <th class="text-center">
+                                Chronic Conditions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                {{patientDetail.patient.allergies}}
+                            </td>
+                            <td class="text-center">
+                                {{patientDetail.patient.medications}}
+                            </td>
+                            <td class="text-center">
+                                {{patientDetail.patient.chronicConditions}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+
+    <div class="col-xs-6 col-xs-offset-3">
+        <!-- Accept button -->
+        <button ng-click="patientDetail.startAssignment();" ng-hide="patientDetail.assignment.startTime" type="button" class="btn btn-primary btn-lg btn-block">Accept</button>
+        <!-- Complete Assignment button -->
+        <button ng-click="isEndingCheckIn = true" ng-show="patientDetail.assignment.startTime && !isEndingCheckIn" type="button" class="btn btn-danger btn-lg btn-block">Complete</button>
+        <!-- Form to submit resolution -->
+        <form name="patientResolution" ng-show="isEndingCheckIn && patientDetail.assignment.startTime">
+            <textarea ng-model="patientDetail.patientCheckIn.resolution" placeholder="Please enter patient assessment" style="width:100%" required></textarea>
+            <button ng-click="patientResolution.$valid && patientDetail.endAssignment();" type="submit"  class="btn btn-danger btn-lg btn-block">Submit</button></form>
+        </form>
+        <br>
+
+    </div>
+</div>

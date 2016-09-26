@@ -1,0 +1,21 @@
+
+
+<div ng-hide="true" class="alert alert-success" role="alert">
+  <a href="#" class="alert-link">Thank you for checking out, See you later Doc! <img src="http://emojipedia-us.s3.amazonaws.com/cache/c1/a1/c1a1f71913edd6770b9fc86ef19c63a6.png" alt="Carrot" style="width:60px;height:50px;"></a>
+</div>
+
+
+<div class="container">
+
+  <div class="col-sm-4 col-sm-offset-4">
+    <div class="well">
+      <form name="checkOutForm" ng-submit="checkOutForm.$valid && checkOut.checkOut(checkOut.doctorId)" class="form-signin">
+          <h2 class="form-signin-heading">Check Out</h2>
+          <label for="doctorId" class="sr-only">Doctor ID</label>
+          <input ng-model="checkOut.doctorId" type="text" id="doctorId" class="form-control" placeholder="Doctor ID" required autofocus>
+          <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Check Out</button>
+      </form>
+    </div>
+  </div>
+</div>
